@@ -1,0 +1,47 @@
+body {
+  background: #222831;
+  color: #EEEEEE;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.hobbies-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #393e46;
+  padding: 40px 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+h1 {
+  color: #00ADB5;
+  font-size: 2.5rem;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 32px;
+}
+
+.hobbies-list {
+  font-size: 1.2rem;
+  padding-left: 0;
+  list-style-position: inside;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.hobbies-list li {
+  margin-bottom: 18px;
+  background: #23272f;
+  border-radius: 8px;
+  padding: 12px 18px;
+  color: #EEEEEE;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hobbies-list li:hover {
+  background: #00ADB5;
+  color: #222831;
+  cursor: pointer;
+}
