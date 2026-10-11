@@ -2,31 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Contact Me</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/contact.css">
+    <title>Contact · Vishnu Sasikumar</title>
+    <meta name="description" content="Get in touch with Vishnu Sasikumar, senior iOS and mobile developer.">
+    <meta name="theme-color" content="#008f96">
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <main class="contact-container">
-      <h1>Contact Me</h1>
-      <ul class="contact-list">
-        <li><strong>Phone:</strong> <em>+64 274 448 169</em></li>
-        <li><strong>Email:</strong> <a href="mailto:vishnu_skumar@ymail.com?subject=feedback">vishnu_skumar@ymail.com</a></li>
-      </ul>
-      <hr>
-      <form class="contact-form" action="mailto:vishnu_skumar@ymail.com?subject=Contact" method="post" enctype="text/plain">
-        <label for="yourName">Your Name:</label>
-        <input type="text" id="yourName" name="yourName" required>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <label for="yourEmail">Your Email:</label>
-        <input type="email" id="yourEmail" name="yourEmail" required>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main">
+        <a class="brand" href="./"><span class="brand-mark">VS</span><span class="brand-name">Vishnu Sasikumar</span></a>
+        <ul class="nav-links">
+          <li><a href="./#about">About</a></li>
+          <li><a href="./#experience">Experience</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+          <li><a href="Contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <label for="yourMessage">Your Message:</label>
-        <textarea id="yourMessage" name="yourMessage" rows="6" required></textarea>
+    <main id="main" class="page container page-narrow">
+      <h1>Contact me</h1>
+      <p class="lede">Have a project in mind or just want to say hello? Drop me a line.</p>
 
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="card">
+        <ul class="contact-list">
+          <li><span class="label">Phone</span><a href="tel:+64274481679">+64 274 481 679</a></li>
+          <li><span class="label">Email</span><a href="mailto:vishnu_skumar@ymail.com">vishnu_skumar@ymail.com</a></li>
+        </ul>
+
+        <form class="form" id="contact-form">
+          <div>
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="hint">This opens your email app with the message ready to send.</p>
+        </form>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year">2025</span> Vishnu Sasikumar</p>
+        <ul class="social">
+          <li><a href="https://nz.linkedin.com/in/vishnu-sasikumar-bbb5365b">LinkedIn</a></li>
+          <li><a href="https://github.com/vishnusasikumar">GitHub</a></li>
+          <li><a href="https://twitter.com/vishnuskumarvad">X / Twitter</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = this.elements.name.value.trim();
+        var subject = encodeURIComponent('Hello from ' + name);
+        var body = encodeURIComponent(this.elements.message.value.trim() + '\n\n— ' + name);
+        window.location.href = 'mailto:vishnu_skumar@ymail.com?subject=' + subject + '&body=' + body;
+      });
+    </script>
   </body>
 </html>

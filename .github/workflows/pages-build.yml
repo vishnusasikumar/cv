@@ -1,0 +1,28 @@
+name: Pages build check
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build site with the GitHub Pages Jekyll builder
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Check expected pages and assets were built
+        run: |
+          for f in index.html Contact.html hobbies.html css/styles.css images/circle-cropped.png favicon.ico; do
+            test -f "_site/$f" || { echo "::error::Missing _site/$f"; exit 1; }
+          done
+          ls -R _site
